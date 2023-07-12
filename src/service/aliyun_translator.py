@@ -23,6 +23,7 @@ class AliyunTranslator:
             result = self.client.translate_general_with_options(translate_general_request, runtime)
         except Exception as error:
             UtilClient.assert_as_string(error.message)
+            return source_text
 
         return result.body.data.translated
 
